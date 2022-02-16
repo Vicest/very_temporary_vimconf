@@ -13,7 +13,6 @@ set autoindent
 syntax on
 
 set number
-set relativenumber
 
 set list
 set listchars=trail:•,tab:›·
@@ -32,6 +31,17 @@ function! MakeHeader(filename)
 	%s/TEMPNAME/\=a:up/g
 	%s/Tempname/\=a:filename/g
 	%s/tempname/\=a:low/g
+	Stdheader
+endfunction
+function! MakeClass(filename)
+"	let a:up = toupper(a:filename)
+	let a:low = tolower(a:filename)
+	0r ~/.vim/templates/class.cpp
+"	%s/TEMPNAME/\=a:up/g
+	%s/Tempname/\=a:filename/g
+	%s/tempname/\=a:low/g
+	Stdheader
 endfunction
 
 autocmd BufNewFile *.hpp call MakeHeader(expand('%:t:r'))
+autocmd BufNewFile *.cpp call MakeClass(expand('%:t:r'))
