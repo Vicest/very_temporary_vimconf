@@ -28,11 +28,15 @@ set ruler
 "C-Comment line or selecction
 nnoremap <C-_> 0I//<C-[>
 vnoremap <C-_> :s/^/\/\//<CR>:noh<CR>
+nnoremap <Bslash> :s/^\/\///<CR>:noh<CR>
+vnoremap <Bslash> :s/^\/\///<CR>:noh<CR>
 "Move lines around
 nnoremap <C-J> :m +1<CR>
 nnoremap <C-K> :m -2<CR>
 vnoremap <C-J> :m '>+1<CR>V'<
 vnoremap <C-K> :m '<-2<CR>V'<
+"vnoremap <C-J> //Ndown
+"vnoremap <C-K> //Nup
 
 "Dunnno if it works TODO
 cnoremap sp<tab> split<space>
