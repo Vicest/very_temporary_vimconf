@@ -33,8 +33,6 @@ nnoremap <C-J> :m +1<CR>
 nnoremap <C-K> :m -2<CR>
 vnoremap <C-J> :m '>+1<CR>V'<
 vnoremap <C-K> :m '<-2<CR>V'<
-"vnoremap <C-J> //Ndown
-"vnoremap <C-K> //Nup
 
 "Dunnno if it works TODO
 cnoremap sp<tab> split<space>
