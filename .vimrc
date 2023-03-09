@@ -26,7 +26,7 @@ set ruler
 
 "Mappings
 "C-Comment line or selecction
-nnoremap <C-_> 0I//<C-[>
+nnoremap <C-_> :s/^/\/\//<CR>:noh<CR>
 vnoremap <C-_> :s/^/\/\//<CR>:noh<CR>
 nnoremap <Bslash> :s/^\/\///<CR>:noh<CR>
 vnoremap <Bslash> :s/^\/\///<CR>:noh<CR>
@@ -59,6 +59,9 @@ function! MakeClass(filename)
 	%s/tempname/\=a:low/g
 	Stdheader
 endfunction
+
+"Some 80 Col error matching if found on vim.fandom.com
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 autocmd BufNewFile *.hpp call MakeHeader(expand('%:t:r'))
 autocmd BufNewFile *.cpp call MakeClass(expand('%:t:r'))
